@@ -1,6 +1,40 @@
-<% @todews.each do |extreme| %>
-<p><%= extreme.content %></p>
-<!-- <p><%= extreme.completed %></p>
-<p><%= extreme.created_at %></p> -->
-<% end %>
+<font face="Bookman Old Style" size="6" color="#99CC00">
+  <p><b><u>EXTREME TODEW LIST</u></b></p>
+</font>
 
+<form>
+  <!-- 
+  Homework
+  1. Create a text area for entering new todews
+  2. Add a submit button
+  3. Add attributes to form so that you can POST this new todew to /new
+  4. Add the /new route, with controller application, action create
+  5. Learn how to create a new Todew, and add to the database
+  -->
+</form>
+
+<form method="POST" action="/update">
+  <font color="#0000CE" size="4">
+    <% @todews.each do |extreme| %>
+      <% if extreme.completed == true %>
+        <strike>
+      <% end %>
+
+      <% if extreme.completed == true %>
+        <input name="<%= extreme.id %>" type="checkbox" checked="yes"></input>
+      <% else %>
+        <input name="<%= extreme.id %>" type="checkbox"></input>
+      <% end %>
+
+      <%= extreme.content %>, <%= extreme.created_at %>
+
+      <% if extreme.completed == true %>
+        </strike>
+      <% end %>
+
+      <br /><br />
+    <% end %>
+  </font>
+
+  <input type='submit'></input>
+</form>
