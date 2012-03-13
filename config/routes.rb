@@ -57,5 +57,6 @@ Ferndew::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   match '/', :controller=>'application',:action=>'index'
   match '/update', :controller=>'application',:action=>'update'
+#  match '/create', :controller=>'application',:action=>'create'
   
 end

@@ -2,25 +2,22 @@
   <p><b><u>EXTREME TODEW LIST</u></b></p>
 </font>
 
-<form>
   <!-- 
-  Homework
-  1. Create a text area for entering new todews
-  2. Add a submit button
-  3. Add attributes to form so that you can POST this new todew to /new
-  4. Add the /new route, with controller application, action create
+  DONE 1. Create a text area for entering new todews
+  DONE 2. Add a submit button
+  DONE 3. Add attributes to form so that you can POST this new todew
+  4. Add the /new route, with controller application, __action create__
   5. Learn how to create a new Todew, and add to the database
   -->
-</form>
 
 <form method="POST" action="/update">
   <font color="#0000CE" size="4">
     <% @todews.each do |extreme| %>
-      <% if extreme.completed == true %>
+      <% if extreme.completed == true #OR extreme.completed? %>
         <strike>
       <% end %>
 
-      <% if extreme.completed == true %>
+      <% if extreme.completed? #OR extreme.completed == true %>  
         <input name="<%= extreme.id %>" type="checkbox" checked="yes"></input>
       <% else %>
         <input name="<%= extreme.id %>" type="checkbox"></input>
@@ -35,6 +32,8 @@
       <br /><br />
     <% end %>
   </font>
-
   <input type='submit'></input>
+    <input type='text box' name="new_todew_text"></input>
+    <br /><br />
 </form>
+
