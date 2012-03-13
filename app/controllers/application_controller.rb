@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  # To get a running view of server log, do this in the project's root directory:
+  #   tail -f log/development.log
+
   def index
     @todews = Todew.all
   end
@@ -16,7 +19,7 @@ class ApplicationController < ActionController::Base
         betterit.completed = false
         betterit.save!
       end
-      if (betterit.completed == false || betterit.completed == nil) && params[betterit.id.to_s]=='on' 
+      if (betterit.completed == false || betterit.completed.nil?) && params[betterit.id.to_s]=='on' #OR better.completed == nil
         betterit.completed = true
         betterit.save!
       end
@@ -30,5 +33,4 @@ class ApplicationController < ActionController::Base
     end
     redirect_to '/'
   end
-
 end
